@@ -11,7 +11,7 @@ public class AmmoPickup : MonoBehaviour
     }
 
    
-    void Update()
+    void Update() 
     {
         
     }
@@ -20,8 +20,12 @@ public class AmmoPickup : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            AudioController.instance.PlayAmmoPickup();
+            AudioController.instance.PlayAmmoPickup(); 
+            
             PlayerController.instance.currentAmmo += ammoAmount;
+            PlayerController.instance.UpdateAMMO();
+
+
             Destroy(gameObject);
         }
         

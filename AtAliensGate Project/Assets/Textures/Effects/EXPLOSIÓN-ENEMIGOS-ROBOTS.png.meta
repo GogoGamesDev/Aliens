@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: c464278c25f11954c9ca4ef182daea23
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8050064428985024561
+    second: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_0"
+  - first:
+      213: -1952341288073673756
+    second: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_1"
+  - first:
+      213: 6650157204434058089
+    second: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_2"
+  - first:
+      213: 5517374269592159892
+    second: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_3"
+  - first:
+      213: 3587804886036750928
+    second: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,7 +100,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_0"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 25
+        width: 4
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcff65b8d0d684090800000000000000
+      internalID: -8050064428985024561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_1"
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 24
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e34a0441f3e7e4e0800000000000000
+      internalID: -1952341288073673756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_2"
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bfbce4eba1a4c50800000000000000
+      internalID: 6650157204434058089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_3"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 22
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496cbe77aa6a19c40800000000000000
+      internalID: 5517374269592159892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "EXPLOSI\xD3N-ENEMIGOS-ROBOTS_4"
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 17
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052a1abe8817ac130800000000000000
+      internalID: 3587804886036750928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

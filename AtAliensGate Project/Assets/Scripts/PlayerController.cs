@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,12 +19,14 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletImpact;
     public int currentAmmo;
 
-    public Animator gunAnim;
+    public Animator gunAnim, dyingAnim, playerMoving;
 
     public int currentHealth;
     public int maxHealth = 100;
     public GameObject deadScreen;
     private bool hasDied;
+    public Text healthText, ammoText;
+
 
     
 
@@ -30,6 +34,12 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
         currentHealth = maxHealth;
+
+        healthText.text = currentHealth.ToString() + "%";
+
+
+        ammoText.text = currentAmmo.ToString();
+        
         
     }
 
@@ -73,8 +83,23 @@ public class PlayerController : MonoBehaviour
                  }
 
                  currentAmmo--;
-                 gunAnim.SetTrigger("Shoot");
-           }    }  
+                 ammoText.text = currentAmmo.ToString();
+
+
+                 gunAnim.SetTrigger("Shoot"); 
+                 UpdateAMMO();
+           }    } 
+
+
+
+           if(moveInput != Vector2.zero)
+           {
+               playerMoving.SetBool("isMoving", true);
+           }else
+           {
+              playerMoving.SetBool("isMoving", false);
+
+           }
  
         }
         
@@ -91,6 +116,24 @@ public class PlayerController : MonoBehaviour
          currentHealth = 0;
       }
 
+        healthText.text = currentHealth.ToString() + "%";
+
+        if(currentHealth <= 25)
+        {
+            dyingAnim.SetBool("Dying", true);
+
+
+
+        }
+
+        if(currentHealth >= 25)
+        {
+          dyingAnim.SetBool("Dying", false);
+
+        }
+       
+
+
       
 
     }
@@ -102,7 +145,20 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = maxHealth;
 
+
         }
+                    
+                    
+        healthText.text = currentHealth.ToString() + "%";
+
+    }
+
+
+    public void UpdateAMMO()
+    {
+        ammoText.text = currentAmmo.ToString();
+
+
     }
 }    
    

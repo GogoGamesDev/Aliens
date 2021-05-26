@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 11d7098298e4ab54ebb6d06fcdd55eff
+guid: 7693ad707fe201d4fa4cac522c63781a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -839573566430778608
-    second: BULLET-IMPACT-ESCOPETA-DETERIORADA_0
-  - first:
-      213: 7741434178055001764
-    second: BULLET-IMPACT-ESCOPETA-DETERIORADA_1
-  - first:
-      213: -3546904985829181621
-    second: BULLET-IMPACT-ESCOPETA-DETERIORADA_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,70 +85,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BULLET-IMPACT-ESCOPETA-DETERIORADA_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 29
-        width: 15
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01be5122a4c3954f0800000000000000
-      internalID: -839573566430778608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BULLET-IMPACT-ESCOPETA-DETERIORADA_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 23
-        width: 28
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a6590b7e591f6b60800000000000000
-      internalID: 7741434178055001764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BULLET-IMPACT-ESCOPETA-DETERIORADA_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 20
-        width: 24
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b47f69b25bcd6cec0800000000000000
-      internalID: -3546904985829181621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
