@@ -8,33 +8,38 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-
-   
-
+    public GameObject loadingObject;
 
     
-    void Start()
+    public void StartGameButton()
     {
+        StartCoroutine(StartGame());
 
-
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Lvl1");
+       
 
     }
-
     public void ExitGame()
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
 
     }
+
+        IEnumerator StartGame()
+        { 
+          loadingObject.SetActive(true);
+
+          yield return new WaitForSeconds(2);
+
+
+          loadingObject.SetActive(false);
+          SceneManager.LoadScene("Lvl1");
+
+
+
+
+        }
+
+
+    
 }

@@ -46,7 +46,7 @@ public class AudioController : MonoBehaviour
         gunShot.Stop();
         gunShot.Play();
     }
-
+ 
     public void PlayHealthSound()
     {
         healthSound.Stop();

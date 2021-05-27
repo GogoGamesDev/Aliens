@@ -102,6 +102,20 @@ public class PlayerController : MonoBehaviour
            }
  
         }
+
+         if(currentHealth <= 25)
+        {
+            dyingAnim.SetBool("Dying", true);
+
+
+
+        }
+
+        if(currentHealth >= 25)
+        {
+          dyingAnim.SetBool("Dying", false);
+
+        }
         
     }      
     public void TakeDamage(int damageAmount)
@@ -118,19 +132,7 @@ public class PlayerController : MonoBehaviour
 
         healthText.text = currentHealth.ToString() + "%";
 
-        if(currentHealth <= 25)
-        {
-            dyingAnim.SetBool("Dying", true);
-
-
-
-        }
-
-        if(currentHealth >= 25)
-        {
-          dyingAnim.SetBool("Dying", false);
-
-        }
+       
        
 
 

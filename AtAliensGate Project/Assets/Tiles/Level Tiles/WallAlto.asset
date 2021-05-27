@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Door
+  m_Name: WallAlto
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: 84ccec2033c75144984f4296af71070f, type: 3}
-  m_DefaultGameObject: {fileID: 5783477254700143570, guid: b9ccf89a44da75f448cb59090f27163f,
+  m_DefaultSprite: {fileID: 21300000, guid: 3ebf730642a179642b3a37c385eef28e, type: 3}
+  m_DefaultGameObject: {fileID: 5304442518393324986, guid: aa0c6a60ae7c7934bb9ec01c5a7dd143,
     type: 3}
   m_DefaultColliderType: 0
   m_TilingRules: []
