@@ -14,7 +14,7 @@ public class EnemyBullet : MonoBehaviour
 
     
     void Start()
-    {
+    { 
 
         direction = PlayerController.instance.transform.position - transform.position;
         direction.Normalize();
@@ -22,9 +22,10 @@ public class EnemyBullet : MonoBehaviour
         
     }
 
-   
+    
     void Update()
     {
+        theRB.velocity = direction * bulletSpeed;
         
     }
 
@@ -35,6 +36,13 @@ public class EnemyBullet : MonoBehaviour
             PlayerController.instance.TakeDamage(damageAmount);
 
             Destroy(gameObject);
+
+        }
+
+        if(other.tag == "Wall")
+        {
+            Destroy(gameObject);
+
 
         }
         

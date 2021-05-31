@@ -19,13 +19,19 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletImpact;
     public int currentAmmo;
 
-    public Animator gunAnim, dyingAnim, playerMoving;
+    public Animator gunAnim, dyingAnim, playerMoving, kickAnim;
 
     public int currentHealth;
     public int maxHealth = 100;
     public GameObject deadScreen;
     private bool hasDied;
     public Text healthText, ammoText;
+
+    public Text healthTextNew, ammoTextNew;
+    public bool HaveShootgun = true;
+    public bool canKick = false;
+    public GameObject fist, shootGun;
+
 
 
     
@@ -37,8 +43,13 @@ public class PlayerController : MonoBehaviour
 
         healthText.text = currentHealth.ToString() + "%";
 
+        healthTextNew.text = currentHealth.ToString() + "%";
+
+
 
         ammoText.text = currentAmmo.ToString();
+        ammoTextNew.text = currentAmmo.ToString();
+
         
         
     }
@@ -60,12 +71,12 @@ public class PlayerController : MonoBehaviour
           viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
       
          //Disparar
-         if(Input.GetMouseButtonDown(0))
+         if(Input.GetAxis("Mouse1")) //HaveShootgun == true*/)
          {
              if(currentAmmo > 0)
              {
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
-                RaycastHit hit;
+                RaycastHit hit; 
                 if(Physics.Raycast(ray, out hit))
                  {
                    Instantiate(bulletImpact, hit.point, transform.rotation);
@@ -82,13 +93,30 @@ public class PlayerController : MonoBehaviour
 
                  }
 
+                 gunAnim.SetTrigger("Shoot"); 
+                 
                  currentAmmo--;
                  ammoText.text = currentAmmo.ToString();
+                 ammoTextNew.text = currentAmmo.ToString();
 
-
-                 gunAnim.SetTrigger("Shoot"); 
                  UpdateAMMO();
            }    } 
+
+           if(Input.GetMouseButtonDown(1) && HaveShootgun == true)
+           {
+               canKick = true;
+               HaveShootgun = false;
+
+               shootGun.SetActive(false);
+               fist.SetActive(true);
+               
+
+           }
+
+           if(Input.GetMouseButtonDown(0) && canKick == true)
+           {
+                 kickAnim.SetTrigger("Kick"); 
+           }
 
 
 
@@ -131,6 +159,8 @@ public class PlayerController : MonoBehaviour
       }
 
         healthText.text = currentHealth.ToString() + "%";
+        healthTextNew.text = currentHealth.ToString() + "%";
+
 
        
        
@@ -152,6 +182,8 @@ public class PlayerController : MonoBehaviour
                     
                     
         healthText.text = currentHealth.ToString() + "%";
+        healthTextNew.text = currentHealth.ToString() + "%";
+
 
     }
 
@@ -159,6 +191,8 @@ public class PlayerController : MonoBehaviour
     public void UpdateAMMO()
     {
         ammoText.text = currentAmmo.ToString();
+        ammoTextNew.text = currentAmmo.ToString();
+
 
 
     }

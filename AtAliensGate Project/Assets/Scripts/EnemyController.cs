@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 
     public bool shouldShoot;
     public float fireRate = .5f;
+
     private float shotCounter;
     public GameObject bullet;
     public Transform firePoint;
@@ -44,15 +45,12 @@ public class EnemyController : MonoBehaviour
                 }
             }
 
-
-
         } else
         {
             theRB.velocity = Vector2.zero;
         }
         
     }
-
     public void TakeDamage()
     {
         health--;
