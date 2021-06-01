@@ -52,7 +52,7 @@ public class AudioController : MonoBehaviour
         healthSound.Stop();
         healthSound.Play();
     } 
-
+ 
     public void PlayPlayerHurt()
     {
         playerHurt.Stop();

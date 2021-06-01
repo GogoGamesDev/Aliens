@@ -10,7 +10,7 @@ public class acidController : MonoBehaviour
 
  void OnTriggerStay2D(Collider2D col)
  {
-    if(col.tag == "Player" && canDamage)
+    if(col.tag == "Player" && canDamage) 
     { //Si el collider es el jugador Y puede hacer daño
       StartCoroutine(DoDamage()); //Empieza la corroutina
     }
@@ -21,6 +21,7 @@ public class acidController : MonoBehaviour
       canDamage = false; //No puedes hacer daño
       PlayerController.instance.TakeDamage(damageAmount); //Haz que el jugador reciba daño
       yield return new WaitForSeconds(cooldownTime); //Espera este tiempo
+      AudioController.instance.PlayPlayerHurt();
       canDamage = true; //Ahora sí podemos hacer daño
    }
     

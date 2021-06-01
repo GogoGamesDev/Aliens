@@ -11,6 +11,9 @@ public class PauseManager : MonoBehaviour
     public bool isPaused = false;
     public GameObject pauseCam;
 
+    private bool m_isAxisInUse = false;
+
+
     private void Awake() 
     {
         instance = this;
@@ -22,13 +25,30 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
-        {            
+        {             
             isPaused = true;
             pausePanel.SetActive(true);
             Time.timeScale = 0;
 
 
         }
+
+
+        if( Input.GetAxisRaw("Cancel") != 0)
+        {
+            if(m_isAxisInUse == false)
+            {
+                  isPaused = true;
+                  pausePanel.SetActive(true);
+                  Time.timeScale = 0;              
+                  m_isAxisInUse = true;
+            }
+        }
+
+        if( Input.GetAxisRaw("Cancel") == 0)
+        {
+           m_isAxisInUse = false;
+        }   
 
         if(isPaused == true)
         {

@@ -26,6 +26,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         theRB.velocity = direction * bulletSpeed;
+
         
     }
 
@@ -34,6 +35,7 @@ public class EnemyBullet : MonoBehaviour
         if(other.tag == "Player")
         {
             PlayerController.instance.TakeDamage(damageAmount);
+            AudioController.instance.PlayPlayerHurt();
 
             Destroy(gameObject);
 

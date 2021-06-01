@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class AI : MonoBehaviour
 {
+    public Animator anim;
+    public SpriteRenderer spriteRenderer;
+    public float speed = 0.5f;
+    private float waitTime;
+    public float startWaitTime = 2;
+    private int i = 0;
+    private Vector2 actualPose;
     public int health = 3;
     public GameObject explosion;
     public float playerRange = 10f;
@@ -17,11 +24,47 @@ public class EnemyController : MonoBehaviour
     private float shotCounter;
     public GameObject bullet;
     public Transform firePoint;
+
+    public Transform[] moveSpots;
+
     public bool iShoot = false;
     public bool followingPlayer = false;
 
+    void Start()
+    {
+        waitTime = startWaitTime;
+        
+    }
+
     void Update()
     {
+
+        transform.position = Vector2.MoveTowards(transform.position, moveSpots[i].transform.position,speed * Time.deltaTime);
+
+        if(Vector2.Distance(transform.position, moveSpots[i].transform.position) < 0.1f)
+        {
+
+            if(waitTime <= 0)
+            {
+                if(moveSpots[i] != moveSpots[moveSpots.Length -1])
+                {
+                    i++;
+                }else
+                {
+                    i = 0;
+                }
+
+                waitTime = startWaitTime;
+
+            }else
+            {
+                waitTime -= Time.deltaTime;
+            }
+
+        }
+
+
+
 
         if(Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
         {
@@ -55,16 +98,19 @@ public class EnemyController : MonoBehaviour
         {
             theRB.velocity = Vector2.zero;
         }
+        
     }
-    public void TakeDamage(Transform currentPlayerPosition) 
-    {
+
+
+     public void TakeDamage() 
+     {
         health--;
         if(health <= 0) 
-        { 
+        {
             Instantiate(explosion, transform.position, transform.rotation);
             AudioController.instance.PlayEnemyDie();
-            Destroy(gameObject); //Hacer esto, destruirá al objeto y el codigo ya no se ejecutará, así que no instanciará ni rerpoducirá el enemigo
-           
+
+            Destroy(gameObject);
         }else 
         {
          AudioController.instance.PlayEnemyShot(); //Como estás destruyendo el objeto, no es necesario poner un "else" ya que el tener un Destroy hará que ya no se reproduzca código
@@ -73,6 +119,5 @@ public class EnemyController : MonoBehaviour
          {
              //MoverseA(currentPlayerPosition); //No sé si "MoverseA" exista, aquí va la función que sea que uses para mover al enemigo y lo que sea que uses para pasarle la posición a la que va
          } 
-    }
-
+     }
 }

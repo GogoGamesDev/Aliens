@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     public bool canKick = false;
     public GameObject fist, shootGun;
 
+    private bool m_isAxisInUse = false;
+
+
 
 
     
@@ -71,53 +74,57 @@ public class PlayerController : MonoBehaviour
           viewCam.transform.localRotation = Quaternion.Euler(viewCam.transform.localRotation.eulerAngles + new Vector3(0f, mouseInput.y, 0f));
       
          //Disparar
-         if(Input.GetAxis("Mouse1")) //HaveShootgun == true*/)
+         if(Input.GetAxis("Fire1") == 1)//HaveShootgun == true*/)
          {
-             if(currentAmmo > 0)
+             if(m_isAxisInUse == false && currentAmmo > 0)
              {
                 Ray ray = viewCam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
                 RaycastHit hit; 
-                if(Physics.Raycast(ray, out hit))
+                if(Physics.Raycast(ray, out hit, 15))
                  {
-                   Instantiate(bulletImpact, hit.point, transform.rotation);
+                    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+
+                    Instantiate(bulletImpact, hit.point, transform.rotation);
+                    Debug.Log("Hit");
 
                    if(hit.transform.tag == "Enemy")
                    {
-                       hit.transform.parent.GetComponent<EnemyController>().TakeDamage(); 
+                       hit.transform.parent.GetComponent<AI>().TakeDamage();
+
                    }
 
-                   AudioController.instance.PlayGunshot();
                  }
-                 else
-                 {
-
-                 }
-
+                
                  gunAnim.SetTrigger("Shoot"); 
-                 
+
+                 AudioController.instance.PlayGunshot();
+
                  currentAmmo--;
                  ammoText.text = currentAmmo.ToString();
                  ammoTextNew.text = currentAmmo.ToString();
 
                  UpdateAMMO();
+                 m_isAxisInUse = true;
+
            }    } 
+
+            if( Input.GetAxisRaw("Fire1") == 0)
+            {
+                  m_isAxisInUse = false;
+            }   
 
            if(Input.GetMouseButtonDown(1) && HaveShootgun == true)
            {
                canKick = true;
                HaveShootgun = false;
-
                shootGun.SetActive(false);
                fist.SetActive(true);
-               
-
            }
 
            if(Input.GetMouseButtonDown(0) && canKick == true)
            {
                  kickAnim.SetTrigger("Kick"); 
            }
-
 
 
            if(moveInput != Vector2.zero)
@@ -143,8 +150,7 @@ public class PlayerController : MonoBehaviour
         {
           dyingAnim.SetBool("Dying", false);
 
-        }
-        
+        }     
     }      
     public void TakeDamage(int damageAmount)
     {
@@ -160,16 +166,8 @@ public class PlayerController : MonoBehaviour
 
         healthText.text = currentHealth.ToString() + "%";
         healthTextNew.text = currentHealth.ToString() + "%";
-
-
-       
-       
-
-
       
-
     }
-
     public void AddHealt(int healAmount)
     {
         currentHealth += healAmount;
@@ -178,23 +176,16 @@ public class PlayerController : MonoBehaviour
             currentHealth = maxHealth;
 
 
-        }
-                    
-                    
+        }               
         healthText.text = currentHealth.ToString() + "%";
         healthTextNew.text = currentHealth.ToString() + "%";
 
-
     }
-
 
     public void UpdateAMMO()
     {
         ammoText.text = currentAmmo.ToString();
-        ammoTextNew.text = currentAmmo.ToString();
-
-
-
+        ammoTextNew.text = currentAmmo.ToString(); 
     }
 }    
    
